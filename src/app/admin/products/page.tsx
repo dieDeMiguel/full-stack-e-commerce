@@ -1,6 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import db from "@/db/db";
+import { CheckCircle2, XCircle } from "lucide-react";
 import Link from "next/link";
 import { PageHeader } from "../_components/PageHeader";
 
@@ -32,7 +40,7 @@ async function ProductsTable() {
 
   console.log(products);
 
-  // if (products.length === 0) return <p>No products found</p>;
+  if (products.length === 0) return <p>No products found</p>;
 
   return (
     <Table>
@@ -49,67 +57,21 @@ async function ProductsTable() {
           </TableHead>
         </TableRow>
       </TableHeader>
-      {/* <TableBody>
-        {products.map(
-          (product: {
-            id: Key | null | undefined;
-            isAvailableForPurchase: any;
-            name: any;
-            priceInCents: number;
-            _count: { orders: number };
-          }) => (
-            <TableRow key={product.id}>
-              <TableCell>
-                {product.isAvailableForPurchase ? (
-                  <>
-                    <span className="sr-only">Available</span>
-                    <CheckCircle2 />
-                  </>
-                ) : (
-                  <>
-                    <span className="sr-only">Unavailable</span>
-                    <XCircle className="stroke-destructive" />
-                  </>
-                )}
-              </TableCell>
-              <TableCell>{product.name}</TableCell>
-              <TableCell>
-                {formatEuroCurrency(product.priceInCents / 100)}
-              </TableCell>
-              <TableCell>{formatNumber(product._count.orders)}</TableCell>
-              <TableCell>
-                <DropdownMenu>
-                  <DropdownMenuTrigger>
-                    <MoreVertical />
-                    <span className="sr-only">Actions</span>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem asChild>
-                      <a download href={`/admin/products/${product.id}/download`}>
-                        Download
-                      </a>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href={`/admin/products/${product.id}/edit`}>
-                        Edit
-                      </Link>
-                    </DropdownMenuItem>
-                    <ActiveToggleDropdownItem
-                      id={product.id}
-                      isAvailableForPurchase={product.isAvailableForPurchase}
-                    />
-                    <DropdownMenuSeparator />
-                    <DeleteDropdownItem
-                      id={product.id}
-                      disabled={product._count.orders > 0}
-                    />
-                  </DropdownMenuContent>
-                </DropdownMenu> 
-              </TableCell>
-            </TableRow>
-          )
-        )}
-      </TableBody> */}
+      <TableBody>
+        {products.map((product) => (
+          <TableRow key={product.id}>
+            <TableCell>
+              {product.isAvailableForPurchase ? (
+                <>
+                  <CheckCircle2 />
+                </>
+              ) : (
+                <XCircle />
+              )}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
     </Table>
   );
 }
