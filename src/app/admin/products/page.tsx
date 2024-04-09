@@ -8,17 +8,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import db from "@/db/db";
-import { DeleteAllProducts } from "@/db/deleteAllProducts";
-import { formatEuroCurrency, formatNumber } from "@/lib/formaters";
+import { CheckCircle2, MoreVertical, XCircle } from "lucide-react";
+import Link from "next/link";
+import { PageHeader } from "../_components/PageHeader";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { CheckCircle2, MoreVertical, XCircle } from "lucide-react";
-import Link from "next/link";
-import { PageHeader } from "../_components/PageHeader";
+} from "@/components/ui/dropdown-menu";
+import { formatEuroCurrency, formatNumber } from "@/lib/formaters";
 
 export default function AdminProductsPage() {
   return (
@@ -35,7 +35,6 @@ export default function AdminProductsPage() {
 }
 
 async function ProductsTable() {
-  DeleteAllProducts();
   const products = await db.product.findMany({
     select: {
       id: true,
@@ -46,8 +45,6 @@ async function ProductsTable() {
     },
     orderBy: { name: "asc" },
   });
-
-  console.log(products);
 
   if (products.length === 0) return <p>No products found</p>;
 
@@ -105,14 +102,14 @@ async function ProductsTable() {
                     </Link>
                   </DropdownMenuItem>
                   {/* <ActiveToggleDropdownItem
-               id={product.id}
-               isAvailableForPurchase={product.isAvailableForPurchase}
-             />
-             <DropdownMenuSeparator />
-             <DeleteDropdownItem
-               id={product.id}
-               disabled={product._count.orders > 0}
-             /> */}
+                    id={product.id}
+                    isAvailableForPurchase={product.isAvailableForPurchase}
+                  />
+                  <DropdownMenuSeparator />
+                  <DeleteDropdownItem
+                    id={product.id}
+                    disabled={product._count.orders > 0}
+                  /> */}
                 </DropdownMenuContent>
               </DropdownMenu>
             </TableCell>
