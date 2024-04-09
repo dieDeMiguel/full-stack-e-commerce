@@ -9,7 +9,7 @@ import { useState } from "react";
 import { addProduct } from "../../_actions/products";
 
 export default function ProductForm() {
-  const [priceInCents, setPriceInCents] = useState<number | undefined>();
+  const [priceInCents, setPriceInCents] = useState<number>();
 
   return (
     <form action={addProduct} className="space-y-8">
@@ -24,6 +24,7 @@ export default function ProductForm() {
           id="priceInCents"
           name="priceInCents"
           required
+          value={priceInCents}
           onChange={(e) => setPriceInCents(Number(e.target.value) || undefined)}
         />
         <div className="text-muted-foreground">
@@ -37,6 +38,10 @@ export default function ProductForm() {
       <div className="space-y-2">
         <Label htmlFor="file">File</Label>
         <Input type="file" id="file" name="file" required />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="image">Image</Label>
+        <Input type="file" id="image" name="image" required />
       </div>
       <Button type="submit">Save</Button>
     </form>

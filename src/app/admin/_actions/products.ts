@@ -2,6 +2,7 @@
 
 import db from "@/db/db";
 import fs from "fs/promises";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 const fileSchema = z.instanceof(File, { message: "Required" });
@@ -45,4 +46,5 @@ export async function addProduct(formData: FormData) {
       imagePath,
     },
   });
+  redirect("/admin/products");
 }

@@ -1,17 +1,6 @@
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import db from "@/db/db";
-import { formatEuroCurrency, formatNumber } from "@/lib/formaters";
-import { CheckCircle2, XCircle } from "lucide-react";
+import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import Link from "next/link";
-import { Key } from "react";
 import { PageHeader } from "../_components/PageHeader";
 
 export default function AdminProductsPage() {
@@ -29,18 +18,18 @@ export default function AdminProductsPage() {
 }
 
 async function ProductsTable() {
-  const products = await db.product.findMany({
-    select: {
-      id: true,
-      name: true,
-      priceInCents: true,
-      isAvailableForPurchase: true,
-      _count: { select: { orders: true } },
-    },
-    orderBy: { name: "asc" },
-  });
+  // const products = await db.product.findMany({
+  //   select: {
+  //     id: true,
+  //     name: true,
+  //     priceInCents: true,
+  //     isAvailableForPurchase: true,
+  //     _count: { select: { orders: true } },
+  //   },
+  //   orderBy: { name: "asc" },
+  // });
 
-  if (products.length === 0) return <p>No products found</p>;
+  // if (products.length === 0) return <p>No products found</p>;
 
   return (
     <Table>
@@ -57,7 +46,7 @@ async function ProductsTable() {
           </TableHead>
         </TableRow>
       </TableHeader>
-      <TableBody>
+      {/* <TableBody>
         {products.map(
           (product: {
             id: Key | null | undefined;
@@ -86,7 +75,7 @@ async function ProductsTable() {
               </TableCell>
               <TableCell>{formatNumber(product._count.orders)}</TableCell>
               <TableCell>
-                {/* <DropdownMenu>
+                <DropdownMenu>
                   <DropdownMenuTrigger>
                     <MoreVertical />
                     <span className="sr-only">Actions</span>
@@ -112,12 +101,12 @@ async function ProductsTable() {
                       disabled={product._count.orders > 0}
                     />
                   </DropdownMenuContent>
-                </DropdownMenu> */}
+                </DropdownMenu> 
               </TableCell>
             </TableRow>
           )
         )}
-      </TableBody>
+      </TableBody> */}
     </Table>
   );
 }
