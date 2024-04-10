@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { formatEuroCurrency } from "@/lib/formatters";
 import { Product } from "@prisma/client";
 import { Label } from "@radix-ui/react-label";
+import Image from "next/image";
 import { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { addProduct } from "../../_actions/products";
@@ -61,16 +62,22 @@ export default function ProductForm({ product }: { product?: Product | null }) {
       <div className="space-y-2">
         <Label htmlFor="file">File</Label>
         <Input type="file" id="file" name="file" required={product === null} />
+        {product != null && (
+          <div className="text-muted-foreground">{product.filePath}</div>
+        )}
         {error.file && <div className="text-destructive">{error.file}</div>}
       </div>
       <div className="space-y-2">
         <Label htmlFor="image">Image</Label>
-        <Input
-          type="file"
-          id="image"
-          name="image"
-          required={product === null}
-        />
+        <Input type="file" id="image" name="image" required={product == null} />
+        {product != null && (
+          <Image
+            src={product.imagePath}
+            height="400"
+            width="400"
+            alt="Product Image"
+          />
+        )}
         {error.image && <div className="text-destructive">{error.image}</div>}
       </div>
       <SubmitButton />
