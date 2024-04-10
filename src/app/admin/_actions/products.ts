@@ -96,6 +96,7 @@ export async function updateProduct(
       imagePath,
     },
   });
+  redirect("/admin/products");
 }
 
 export async function toggleProductAvailability(
