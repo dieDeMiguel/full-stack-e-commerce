@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { formatEuroCurrency } from "@/lib/formaters";
+import { formatEuroCurrency } from "@/lib/formatters";
 import { Label } from "@radix-ui/react-label";
 import { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";

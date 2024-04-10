@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import db from "@/db/db";
-import { formatEuroCurrency, formatNumber } from "@/lib/formaters";
+import { formatEuroCurrency, formatNumber } from "@/lib/formatters";
 
 async function getSalesData() {
   const data = await db.order.aggregate({

@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
   Table,
   TableBody,
   TableCell,
@@ -8,17 +15,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import db from "@/db/db";
+import { formatEuroCurrency, formatNumber } from "@/lib/formatters";
 import { CheckCircle2, MoreVertical, XCircle } from "lucide-react";
 import Link from "next/link";
 import { PageHeader } from "../_components/PageHeader";
-
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { formatEuroCurrency, formatNumber } from "@/lib/formaters";
+  ActiveToggleDropdownItem,
+  DeleteDropdownItem,
+} from "./_components/ProductActions";
 
 export default function AdminProductsPage() {
   return (
@@ -101,7 +105,7 @@ async function ProductsTable() {
                       Edit
                     </Link>
                   </DropdownMenuItem>
-                  {/* <ActiveToggleDropdownItem
+                  <ActiveToggleDropdownItem
                     id={product.id}
                     isAvailableForPurchase={product.isAvailableForPurchase}
                   />
@@ -109,7 +113,7 @@ async function ProductsTable() {
                   <DeleteDropdownItem
                     id={product.id}
                     disabled={product._count.orders > 0}
-                  /> */}
+                  />
                 </DropdownMenuContent>
               </DropdownMenu>
             </TableCell>
