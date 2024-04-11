@@ -22,7 +22,7 @@ async function getSalesData() {
   };
 }
 
-function wait(duration: number) {
+export function wait(duration: number) {
   return new Promise((resolve) => setTimeout(resolve, duration));
 }
 
