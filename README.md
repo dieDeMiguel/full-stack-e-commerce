@@ -48,4 +48,9 @@ npm run dev
 
 This command will start the Next.js development server on `http://localhost:3000`.
 
-Enjoy your e-commerce journey!
+Enjoy your e-commerce journey!\
+\
+\
+Running the Stripe Module: \
+\
+Listen to payment Events: stripe listen --forward-to l[ocalhost:3000/webhooks/stripe ](http://localhost:3000/webhooks/stripe)
