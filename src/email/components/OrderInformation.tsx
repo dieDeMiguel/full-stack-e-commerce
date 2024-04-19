@@ -14,7 +14,7 @@ type OrderInformationProps = {
   downloadVerificationId: string;
 };
 
-const dateFormatter = new Intl.DateTimeFormat("en", { dateStyle: "medium" });
+const dateFormatter = new Intl.DateTimeFormat("de", { dateStyle: "medium" });
 
 export function OrderInformation({
   order,
