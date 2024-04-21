@@ -48,9 +48,30 @@ npm run dev
 
 This command will start the Next.js development server on `http://localhost:3000`.
 
-## \
+## **Accessing the Application**
 
-**Running the Stripe Module:**
+There are two ways to access the application: as a User and as an Admin.
+
+### **User Access**
+
+Users can access the application by navigating to the base URL of the application. For example, if you're running the application locally, the URL would be `http://localhost:3000`.
+
+Users can browse products, add them to their cart, and proceed to checkout. They will need to enter their email address to complete the purchase.
+
+### **Admin Access**
+
+Admins can access the admin dashboard by navigating to the `/admin` path of the application. For example, if you're running the application locally, the URL would be `http://localhost:3000/admin`.
+
+The admin dashboard provides a view of sales, customers, and active products. It also allows the admin to manage products.
+
+To log in as an admin, you will need the admin username and password. These are set as environment variables in your `.env` file:
+
+- `ADMIN_USERNAME`: The username for the admin user.
+- `HASHED_ADMIN_PASSWORD`: The hashed password for the admin user.
+
+Remember, the actual password is not the hashed password stored in the `.env` file. You should know the actual password that corresponds to the hashed password in the `.env` file.
+
+### **Running the Stripe Module:**
 
 ### Listen to payment Events: `stripe listen --forward-to localhost:3000/webhooks/stripe`
 
@@ -62,7 +83,12 @@ For testing purposes, please ensure that the email used for the purchase matches
 
 This is because the application uses the Resend service for email notifications. If the emails do not match, Resend will not be able to send the notification, and the purchase will fail.
 
-Please keep this in mind when testing the application.
+Please keep this in mind when testing the application.\
+\
+Credit Card Number for Demo Purschases: \
+Card #: 4242 4242 4242 4242 \
+Expiration Date: Any date in the future.\
+CVC: 424
 
 ## **Environment Variables**
 
