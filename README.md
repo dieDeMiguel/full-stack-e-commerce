@@ -53,4 +53,4 @@ Enjoy your e-commerce journey!\
 \
 Running the Stripe Module: \
 \
-Listen to payment Events: stripe listen --forward-to l[ocalhost:3000/webhooks/stripe ](http://localhost:3000/webhooks/stripe)
+Listen to payment Events: `stripe listen --forward-to localhost:3000/webhooks/stripe `
