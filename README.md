@@ -48,12 +48,21 @@ npm run dev
 
 This command will start the Next.js development server on `http://localhost:3000`.
 
-Enjoy your e-commerce journey!\
-\
-\
-Running the Stripe Module: \
-\
-Listen to payment Events: `stripe listen --forward-to localhost:3000/webhooks/stripe `
+## \
+
+**Running the Stripe Module:**
+
+### Listen to payment Events: `stripe listen --forward-to localhost:3000/webhooks/stripe`
+
+###
+
+### **Demo Purchases**
+
+For testing purposes, please ensure that the email used for the purchase matches the email of the account registered on Resend. If the emails do not match, the purchase will not be successful.
+
+This is because the application uses the Resend service for email notifications. If the emails do not match, Resend will not be able to send the notification, and the purchase will fail.
+
+Please keep this in mind when testing the application.
 
 ## **Environment Variables**
 
