@@ -36,7 +36,7 @@ OrderHistoryEmail.PreviewProps = {
         name: "Product name",
         description: "Some description",
         imagePath:
-          "/products/5aba7442-e4a5-4d2e-bfa7-5bd358cdad64-02 - What Is Next.js.jpg",
+          "/products/1beef135-7dbd-4a46-be97-8e5cfd9e5457-IMG_2465.jpg",
       },
     },
     {
@@ -48,7 +48,7 @@ OrderHistoryEmail.PreviewProps = {
         name: "Product name 2",
         description: "Some other desc",
         imagePath:
-          "/products/db3035a5-e762-41b0-996f-d54ec730bc9c-01 - Course Introduction.jpg",
+          "/products/379bf154-e820-4888-9a9b-8ad91610ebb5-IMG_1009.jpg",
       },
     },
   ],

@@ -54,3 +54,25 @@ Enjoy your e-commerce journey!\
 Running the Stripe Module: \
 \
 Listen to payment Events: `stripe listen --forward-to localhost:3000/webhooks/stripe `
+
+## **Environment Variables**
+
+This application requires the following environment variables to be defined in the `.env` file:
+
+- `DATABASE_URL`: This is the connection string to your database. For a local SQLite database, it would look like `file:./dev.db`.
+- `ADMIN_USERNAME`: The username for the admin user.
+- `HASHED_ADMIN_PASSWORD`: The hashed password for the admin user.
+- `NEXT_PUBLIC_STRIPE_PUBLIC_KEY`: Your public key from Stripe. You can find this in your Stripe Dashboard (https://dashboard.stripe.com).
+- `STRIPE_SECRET_KEY`: Your secret key from Stripe. You can find this in your Stripe Dashboard. Be sure to keep this value secret.
+- `RESEND_API_KEY`: Your API key for the Resend service. You can find this in your Resend account.
+
+Here's an example of what your `.env` file might look like:
+
+```env
+DATABASE_URL="file:./dev.db"
+ADMIN_USERNAME="admin"
+HASHED_ADMIN_PASSWORD="sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg=="
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY="pk_test_1234abcd"
+STRIPE_SECRET_KEY="sk_test_1234abcd"
+RESEND_API_KEY="your-resend-api-key"
+```
